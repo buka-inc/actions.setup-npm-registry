@@ -1,4 +1,4 @@
-# actions.add-npm-register
+# actions.setup-npm-registry
 
 Append `//npm.pkg.github.com/:_authToken=xxxxxx` to `.npmrc`.
 
@@ -11,7 +11,7 @@ jobs:
     name: Example
     runs-on: ubuntu-latest
     steps:
-      - uses: buka-inc/actions.add-npm-registry@v1
+      - uses: buka-inc/actions.setup-npm-registry@v1
         with:
           registry: npm.pkg.github.com
           authToken: ${{ secrets.GITHUB_TOKEN }}
