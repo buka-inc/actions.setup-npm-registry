@@ -8,8 +8,12 @@ inputs:
   authToken:
     description: "Npm Auth Token"
     required: true
+  path:
+    description: "Path to .npmrc directory"
+    required: false
+    default: ""
 runs:
   using: composite
   steps:
   - shell: bash
-    run: echo "//${{ inputs.registry }}/:_authToken=${{ inputs.authToken }}" >> .npmrc
+    run: echo "//${{ inputs.registry }}/:_authToken=${{ inputs.authToken }}" >> ${{ inputs.path }}.npmrc
