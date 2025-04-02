@@ -1,0 +1,15 @@
+name: "Add Npm Registry"
+description: "Add npm registry and token to .npmrc"
+inputs:
+  registry:
+    description: "Npm Registry"
+    required: false
+    default: "npm.pkg.github.com"
+  authToken:
+    description: "Npm Auth Token"
+    required: true
+runs:
+  using: composite
+  steps:
+  - shell: bash
+    run: echo "//${{ inputs.registry }}/:_authToken=${{ inputs.authToken }}" >> .npmrc
